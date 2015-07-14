@@ -1,4 +1,4 @@
-<table border='0' width="100%" height="100%" cellspacing="0" cellspacing="0">
+<table border='0' width="100%" cellspacing="0" cellspacing="0">
     <tr class="left_tr1">
       <td>
         <?php 
@@ -47,13 +47,13 @@
 						<tr>
 							<td>
 								Data With Location &nbsp;&nbsp;
-								<input type="checkbox" name="location" checked>     
+								<input type="checkbox" name="location" checked style="float:right;margin-right:60px;">     
 							</td>
 						</tr>
 						<tr>
 							<td>
 								Geofence &nbsp;&nbsp;
-								<input type="checkbox" name="geofence_feature">     
+								<input type="checkbox" name="geofence_feature" style="float:right;margin-right:60px;">     
 							</td>
 						</tr>
 					</table>

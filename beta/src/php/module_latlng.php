@@ -11,7 +11,7 @@
             <table border="0" class="module_left_menu">
               <tr>
                 <td>
-                 Latitude/Longitude &nbsp;&nbsp;<input type="checkbox" name="latlng" onclick="javascript:show_latlng()">     
+                 Latitude/Longitude &nbsp;&nbsp;<input type="checkbox" name="latlng" onclick="javascript:show_latlng()" style="float:right;margin-right:60px;">     
                 </td>
               </tr>
             </table>

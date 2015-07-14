@@ -13,10 +13,10 @@
          <?php 
           if($user_id!='demo')
           {
-            echo "<font color='#333333'><strong>Support Ph:".$tech_supp_no."</strong></font><br>";
+            echo "<font color='#333333' style='font-size:12px'>Support Ph:<br><strong>".$tech_supp_no."</strong></font><br>";
           }
            
-          echo "<font color='#333333'><strong>".$copyright_name."</strong></font>"; ?>  
+          echo "<font color='#333333'>".$copyright_name."</font>"; ?>  
           
           </center>
     </td>        

@@ -12,7 +12,7 @@
 <tr>
   <td>
  <input type="hidden" id="date_switch">
-    <table border='0' cellpadding='0' cellspacing='0' class="module_left_menu" width="100%" bgcolor="F7DA95">
+    <table border='0' cellpadding='0' cellspacing='0' class="module_left_menu" width="100%" bgcolor="#DDD">
       <tr>        
         <td width="47%">	
 			<input type="radio" name="mode" value="1" checked Onclick="javascript:switch_vehicle_selection(this.value);"> 
@@ -25,7 +25,7 @@
 			//if($account_id==2)
 			{
 			echo'<a href="#" onclick="show_current_last_data();" class="hs2">
-					<img src="../../images/live/live_vehicle.gif" width="8px" hieght="8px" style="border:none;">
+					<img src="../../images/live/live_vehicle.gif" width="8px" height="8px" style="border:none;position:relative;bottom:5px">
 				</a> ';
 			}
 			?>

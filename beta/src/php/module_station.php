@@ -18,11 +18,11 @@
              Show 
           </td>
 		   <td>
-            :
+            
           </td>
 		   <td>
             <!--<select id="station_chk" onchange="javascript:visible_station();">-->
-			<select id="station_chk">	
+			<select id="station_chk" style="float:right;margin-right:35px;width:90px">	
 				<option value="select">Select</option>
 				<option value="0">Customer</option>
 				<option value="1">Plant</option>';
@@ -47,7 +47,7 @@
         <tr>
           <td colspan="3">
             <em>Search <font color="green">Station</font></em> &nbsp;     
-            <input type="text" id="station_search_text" size="10" onkeypress="return runScriptEnter_station(event)"/>
+            <input type="text" id="station_search_text" size="10" onkeypress="return runScriptEnter_station(event)" style="float:right;margin-right:35px;width:90px" />
           </td>
         </tr>
         

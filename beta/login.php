@@ -51,7 +51,7 @@
 
 	if($count <= 0)
 	{
-		$msg = "Not a Registered User! Please Wait ...";
+		$msg = "<div style='font-family:Arial;font-size:15pt;margin: 0 auto;margin-top:10px;color:#EEE;background:#333;padding: 10px;border-radius:5px;text-align:center;width:400px;'>Not a Registered User! Please Wait ...</div>";
 		$msg_color = "Red";
 		$re_url = "index.htm";
 		$flag = 0;
@@ -74,7 +74,7 @@
 		{
 			
 			$live_default = 0;
-			$msg = "Registered User! Please Wait ...";
+			$msg = "<div style='font-family:Arial;font-size:15pt;margin: 0 auto;margin-top:10px;color:#EEE;background:#333;padding: 10px;border-radius:5px;text-align:center;width:400px;'>Registered User! Please Wait ...</div>";
 			$msg_color = "Green";
 			//$re_url = "home.php";
 			$flag = 1;

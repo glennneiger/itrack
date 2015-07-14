@@ -29,7 +29,7 @@
 	session_unset();
 	//session_destroy();
 
-  print"<font color=\"Red\" size=4><strong>Logout Successful! Please Wait ...</strong></font>";
+  print"<div style='font-family:Arial;font-size:15pt;margin: 0 auto;margin-top:10px;color:#EEE;background:#333;padding: 10px;border-radius:5px;text-align:center;width:400px;'>Logout Successful! Please Wait ...</div>";
 	
 	session_start();		
 

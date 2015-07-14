@@ -45,7 +45,7 @@
   else
 	{ 
 	  
-	  $msg = "Registered User! Please Wait ...";
+	  $msg = "<div style='font-family:Arial;font-size:15pt;margin: 0 auto;margin-top:10px;color:#AAA;background:rgba(0,0,0,0.5);padding: 10px;border-radius:5px;'>Registered User! Please Wait ...</div>";
 	  $msg_color = "Green";
 	  $re_url = "home.php";
 	  $flag = 1;
@@ -63,7 +63,7 @@
 	}
 	
 	// echo "<br><br><br><br><br><br><center><FONT color=\"".$msg_color."\" size=4><strong><br>".$msg."</strong></font></center>";	
-	echo "<FONT color=\"".$msg_color."\" size=4><strong><br>".$msg."</strong></font>";
+	echo $msg;
 	
   //date_default_timezone_set('Asia/Calcutta');
   $datetime_in = date("Y-m-d H:i:s");

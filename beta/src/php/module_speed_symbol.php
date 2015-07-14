@@ -4,7 +4,7 @@
 	{
 		echo'<td>';
 	?>  
-    <table width="100%" class='module_left_menu' bgcolor='F7DA95'>
+    <table width="100%" class='module_left_menu' bgcolor='#DDD'>
       <tr>
         <td>
          Filter Speed Ballons

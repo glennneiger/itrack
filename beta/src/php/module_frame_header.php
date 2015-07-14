@@ -7,7 +7,7 @@
 	$interface = $url_substr[$size-1];				
 	$div_height="<div style='height:2px;'></div>";		
 	$set_nbsp="&nbsp;";		
-	$img_size='width="15px" hight="14px"';
+	$img_size='width="15px" height="14px"';
 	$query="SELECT name from account_detail where account_id='$account_id'";	$result=mysql_query($query,$DbConnection);	$row=mysql_fetch_object($result);
 	$user_name=$row->name;
 	//echo"interface=".$interface;
@@ -15,7 +15,7 @@
 	echo "<table border='0' width='100%' cellpadding='0' cellspacing='0' height='100%' class='frame_header_table'>  
 			<tr>
 				<td width='2%'>&nbsp;&nbsp;<img src='images/icon/welcome.png'".$img_size." style='border:none;'></td>
-				<td align='left' width='17%'><font color='blue'>Welcome </font><font color='green'>&nbsp;:&nbsp;".$user_name."</font></td>";
+				<td align='left' width='17%'><font color='#666'>Welcome</font><font color='#999' style='font-weight:700'>: ".$user_name."</font></td>";
 			//if($interface=="home.php" || $interface=="live.php")
 			if($interface=="home.php" || $interface=="live.php")
 			{
@@ -35,7 +35,7 @@
 	
 				echo"<td align='right'>&nbsp;&nbsp;Display Option&nbsp;:&nbsp;</td>
 					<td>
-						<select id='user_type_option' style='font-size:10px' onchange='javascript:show_main_home_vehicle(this.value);'>
+						<select id='user_type_option' style='font-size:12px' onchange='javascript:show_main_home_vehicle(this.value);'>
 							<option value='all'>All</option>					<option value='group'>By Group</option>		<option value='user'>By User</option>
 							<option value='vehicle_tag'>By Vehicle Tag</option>	<option value='vehicle_type'>By Vehicle Type</option>
 							<!--<option value='vehicle'>By Vehicle</option>-->	
@@ -118,26 +118,22 @@
 										</tr>
 										<tr>
 											<td>
-												<a href="home.htm" style="text-decoration:none;">
-													<img src="images/icon/home1.png" '.$img_size.' style="border:none;">'.$set_nbsp.'
-												</a>
 											</td>
 										</tr>
 									</table>									
 								</td>							
-								<td '.$v_align.'>';	
+								<td '.$v_align.' class="hopt">';	
 								if($interface == "home.php")
 								{
-									echo '<b class="hs1">Home</b>';
+									echo '<b class="hs1"><img src="images/icon/home1.png" '.$img_size.' style="border:none;"> Home</b>';
 								} 
 								else
 								{ 
-									echo '<a href="home.htm" class="hs2">Home</a> ';
+									echo '<a href="home.htm" class="hs2"><img src="images/icon/home1.png" '.$img_size.' style="border:none;"> Home</a> ';
 								}
 								echo'</td>';
 
 								echo'<td>
-										'.$set_nbsp.'|'.$set_nbsp.'
 									</td>
 									<td>
 										<table cellspacing=0 cellpadding=0>
@@ -146,27 +142,24 @@
 											</tr>
 											<tr>
 												<td>
-													<a href="live.htm" style="text-decoration:none;">
-														<img src="images/icon/live.png" '.$img_size.' style="border:none;">'.$set_nbsp.'
-													</a>
+
 												</td>
 											</tr>
 										</table>
 									</td>
-									<td '.$v_align.'>';	
+									<td '.$v_align.' class="hopt">';	
 										if($interface == "live.php")
 										{
-											echo '<b class="hs1">Live</b>';
+											echo '<b class="hs1"><img src="images/icon/live.png" '.$img_size.' style="border:none;"> Live</b>';
 										} 
 										else
 										{ 
-											echo '<a href="live.htm" class="hs2">Live</a>';
+											echo '<a href="live.htm" class="hs2"><img src="images/icon/live.png" '.$img_size.' style="border:none;"> Live</a>';
 										}
 								echo'</td>';
 								if($session_user_permission==1)
 								{
 									echo'<td>
-											'.$set_nbsp.'|'.$set_nbsp.'
 										</td>
 										<td>
 											<table cellspacing=0 cellpadding=0>
@@ -175,27 +168,22 @@
 												</tr>
 												<tr>
 													<td>												
-														<a href="manage.htm" style="text-decoration:none;">
-															<img src="images/icon/manage.png" '.$img_size.' style="border:none;">'.$set_nbsp.'
-														</a>
 													</td>
 												</tr>
 											</table>
 											</td>							
-										<td '.$v_align.'>';	
+										<td '.$v_align.' class="hopt">';	
 											if($interface == "manage.php")
 												{
-													echo '<b class="hs1">Manage</b>';
+													echo '<b class="hs1"><img src="images/icon/manage.png" '.$img_size.' style="border:none;"> Manage</b>';
 												}
 												else
 												{ 
-													echo '<a href="manage.htm" class="hs2">Manage</a>';
+													echo '<a href="manage.htm" class="hs2"><img src="images/icon/manage.png" '.$img_size.' style="border:none;"> Manage</a>';
 												}
 									echo'</td>';
 								}
-									echo'<td>
-											'.$set_nbsp.'|'.$set_nbsp.'
-										</td>
+									echo'
 										<td>
 											<table cellspacing=0 cellpadding=0>
 												<tr>
@@ -203,28 +191,24 @@
 												</tr>
 												<tr>
 													<td>
-														<a href="report.htm" style="text-decoration:none;">
-															<img src="images/icon/report2.png" '.$img_size.' style="border:none;">'.$set_nbsp.'
-														</a>
 													</td>
 												</tr>
 											</table>
 										</td>
-										<td '.$v_align.'>';	
+										<td '.$v_align.'class="hopt">';	
 											if($interface == "report.php")
 											{
-												echo '<b class="hs1">Report</b>';
+												echo '<b class="hs1"><img src="images/icon/report2.png" '.$img_size.' style="border:none;"> Report</b>';
 											} 
 											else
 											{ 
-												echo '<a href="report.htm" class="hs2">Report</a>';
+												echo '<a href="report.htm" class="hs2"><img src="images/icon/report2.png" '.$img_size.' style="border:none;"> Report</a>';
 											}
 									echo'</td>';
 
 									if($session_user_permission==1)
 									{	
 									echo'<td>
-										'.$set_nbsp.'|'.$set_nbsp.'
 										</td>';
 										echo'<td '.$v_align.'>
 												<table cellspacing=0 cellpadding=0>
@@ -233,14 +217,11 @@
 													</tr>
 													<tr>
 														<td>
-															<a href="setting.htm" style="text-decoration:none;">
-																<img src="images/icon/setting1.png" '.$img_size.' style="border:none;">'.$set_nbsp.'
-															</a>
 														</td>
 													</tr>
 												</table>
 											</t>
-											<td>';  
+											<td class="hopt">';  
                        if($school_user_type==1)
                        {
                        
@@ -249,18 +230,17 @@
                        {
                           if($interface == "setting.php")
       										{
-      											echo '<b class="hs1">Setting</b>';
+      											echo '<b class="hs1"><img src="images/icon/setting1.png" '.$img_size.' style="border:none;"> Setting</b>';
       										} 
       										else
       										{ 
-      											echo '<a href="setting.htm" class="hs2">Setting</a>';
+      											echo '<a href="setting.htm" class="hs2"><img src="images/icon/setting1.png" '.$img_size.' style="border:none;"> Setting</a>';
       										}
                        }                           
 										
 									echo'</td>';
 									}
 									echo'<td>
-											'.$set_nbsp.'|'.$set_nbsp.'
 										</td>
 										<td>
 											<table cellspacing=0 cellpadding=0>
@@ -269,25 +249,21 @@
 												</tr>
 												<tr>
 													<td>
-														<a href="help.htm" style="text-decoration:none;">
-															<img src="images/icon/help1.png" '.$img_size.' style="border:none;">'.$set_nbsp.'
-														</a>
 													</td>
 												</tr>
 											</table>
 										</td>
-										<td '.$v_align.'>';	
+										<td '.$v_align.' class="hopt">';	
 											if($interface == "help.php")
 											{
-												echo '<b class="hs1">Help</b>';
+												echo '<b class="hs1"><img src="images/icon/help1.png" '.$img_size.' style="border:none;"> Help</b>';
 											}
 											else
 											{ 
-												echo '<a href="help.htm" class="hs2">Help</a>';
+												echo '<a href="help.htm" class="hs2"><img src="images/icon/help1.png" '.$img_size.' style="border:none;"> Help</a>';
 											}
 									echo'</td>
 											<td>
-												'.$set_nbsp.'|'.$set_nbsp.'
 											</td>';						
 									echo'<td>
 											<table cellspacing=0 cellpadding=0>
@@ -296,16 +272,13 @@
 												</tr>
 												<tr>
 													<td>
-														<a href="logout.htm" style="text-decoration:none;">
-															<img src="images/icon/logout.png" '.$img_size.' style="border:none;">'.$set_nbsp.'
-														</a>
 													</td>
 												</tr>
 											</table>
 										</td>
-										<td '.$v_align.'>';
+										<td '.$v_align.' class="hopt">';
 										echo '<a href="logout.htm" class="hs2">
-													Logout
+													<img src="images/icon/logout.png" '.$img_size.' style="border:none;"> Logout
 												</a>&nbsp;
 										</td>
 									</tr>

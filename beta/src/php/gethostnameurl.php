@@ -2,10 +2,10 @@
  $host = $_SERVER['HTTP_HOST'];
 if($host=="test.itracksolution.com")
  {
-   $bgcolor="#A5BFDD"; 
+   $bgcolor="#DDD"; 
   }
   else
   {
-     $bgcolor="#FFDC9B";
+     $bgcolor="#DDD";
   }
 ?>

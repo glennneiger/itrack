@@ -27,11 +27,11 @@ for($k=0;$k<$size_feature_session;$k++)
 			<tr>
 				<td>
 					<table align='center' border="0" style='font-family: arial, sans-serif; font-size:11px;font-weight:bold' width="100%" cellspacing=2 cellpadding=2>
-						 <tr>
+						 <tr style="position:relative">
 							<td>
 								&nbsp;&nbsp;Vehicle List
 							</td>
-							<td align='right'>  
+							<td align='right' style="position:absolute;right:2px;top:2px">  
 								<a href='#' onclick='javascript:close_popup()'>
 									<img src="images/close.png" style="border:none;">&nbsp;
 								</a>
@@ -169,8 +169,8 @@ for($k=0;$k<$size_feature_session;$k++)
 			</TR>
 			<TR>			
 				<TD align="center">
-					<input type="button" Onclick="javascript:filter_live_vehicle(this.form,'js1')" value="Enter"> &nbsp;
-					<input type="reset" value="Clear">		
+					<input class="map_text_bt" type="button" Onclick="javascript:filter_live_vehicle(this.form,'js1')" value="Enter"> &nbsp;
+					<input class="map_text_bt" type="reset" value="Clear">		
 				</td>
 			</tr>
 			<TR>
