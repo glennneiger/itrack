@@ -55,7 +55,7 @@ public class class_pop_junction {
 			    while (rs1.next()){
 			        //System.out.println("Name= " + rs.getString("name") + " Code= " + rs.getString("featureId"));
 			    	churaha_name=rs1.getString("name");
-			    	churaha_code=rs1.getString("featureId");
+			    	churaha_code=rs1.getString("featureid");
 			    }
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -106,7 +106,7 @@ public class class_pop_junction {
 					double lng_minus= Double.parseDouble(lng)-1;
 					double lng_plus= Double.parseDouble(lng)+1;
 					//Execute the SQL statement and get the results in a Resultset
-					String query="SELECT id, name, astext(location) as lnglat,featureId, CAST (st_distance_sphere(location, st_setsrid(st_makepoint("+lng+","+lat+"),4326)) AS INT) AS d FROM road WHERE location && 'BOX3D("+lng_minus+" "+lat_minus+","+lng_plus+" "+lat_plus+")'::box3d and name!='' ORDER BY location <-> st_setsrid(st_makepoint("+lng+","+lat+"), 4326)  LIMIT 1";
+					String query="SELECT id, name, astext(location) as lnglat,featureid, CAST (st_distance_sphere(location, st_setsrid(st_makepoint("+lng+","+lat+"),4326)) AS INT) AS d FROM road WHERE location && 'BOX3D("+lng_minus+" "+lat_minus+","+lng_plus+" "+lat_plus+")'::box3d and name!='' ORDER BY location <-> st_setsrid(st_makepoint("+lng+","+lat+"), 4326)  LIMIT 1";
 					//String query="SELECT id, name, astext(location) as lnglat,featureId, CAST (st_distance_sphere(location, st_setsrid(st_makepoint("+lng+","+lat+"),4326)) AS INT) AS d FROM road WHERE name!='' ORDER BY location <-> st_setsrid(st_makepoint("+lng+","+lat+"), 4326)  LIMIT 1";
 					//String query="SELECT id, name, astext(location) as lnglat,featureId FROM road ORDER BY location <-> st_setsrid(st_makepoint("+lng+","+lat+"), 4326)  LIMIT 1";
 					//System.out.println(query);
@@ -122,7 +122,7 @@ public class class_pop_junction {
 					while (rs1.next()){
 						//System.out.println("Name= " + rs.getString("name") + " Code= " + rs.getString("featureId"));
 						churaha_name=rs1.getString("name");
-						churaha_code=rs1.getString("featureId");
+						churaha_code=rs1.getString("featureid");
 						get_radius=rs1.getString("d");
 						//System.out.println("radius=:"+get_radius);
 						//System.out.println("end time latlng to get"+System.currentTimeMillis());
@@ -183,7 +183,7 @@ public class class_pop_junction {
 		    try {
 				Statement stmt = gis_con.connection.createStatement();
 				 //Execute the SQL statement and get the results in a Resultset
-				String query="SELECT name,astext(location) as lnglat,featureId FROM road where featureid="+code;
+				String query="SELECT name,astext(location) as lnglat,featureid FROM road where featureid="+code;
 			    ResultSet rs1 = stmt.executeQuery(query);
 			    // Iterate through the ResultSet, displaying two values
 			    // for each row using the getString method
@@ -191,7 +191,7 @@ public class class_pop_junction {
 			    while (rs1.next()){
 			        //System.out.println("Name= " + rs.getString("name") + " Code= " + rs.getString("featureId"));
 			    	churaha_name=rs1.getString("name");
-			    	churaha_code=rs1.getString("featureId");
+			    	churaha_code=rs1.getString("featureid");
 			    	String lnglat="";
 			    	lnglat=rs1.getString("lnglat");
 			    	//System.out.println(lnglat);
@@ -265,7 +265,7 @@ public class class_pop_junction {
 			
 					//Execute the SQL statement and get the results in a Resultset
 					
-					String query="SELECT name,astext(location) as lnglat,featureId FROM road where featureid="+code;
+					String query="SELECT name,astext(location) as lnglat,featureid FROM road where featureid="+code;
 					//System.out.println(query);
 					ResultSet rs1 = stmt.executeQuery(query);
 					// Iterate through the ResultSet, displaying two values
@@ -274,7 +274,7 @@ public class class_pop_junction {
 					while (rs1.next()){
 						
 						churaha_name=rs1.getString("name");
-				    	churaha_code=rs1.getString("featureId");
+				    	churaha_code=rs1.getString("featureid");
 				    	String lnglat="";
 				    	lnglat=rs1.getString("lnglat");
 				    	//System.out.println(lnglat);
