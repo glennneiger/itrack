@@ -1,7 +1,6 @@
-# itrack
-Location Tracking for Everyone
+#  gis java code and php code for push and pop into gisgraphy
 
-REST API
-
-Documentation and all endpoints defined on
-http://api.wpdvlpr.com/
+There are three folder
+1.GISgraphyAPI is a complete project in java having lib folder of many supporting jar file
+2.gisJavaApi-Only Source code in java
+3.gisPhpApi- Source code and lib in php
