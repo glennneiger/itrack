@@ -188,8 +188,8 @@ $current_date =  date('Y-m-d', strtotime($date .' -1 day'));
 */
 
 //////////////////////////////////////////
-$startdate = $previous_date." 08:00:00";               //TIME 8AM TO 8AM
-$enddate = $current_date." 08:00:00"; 
+$startdate = $previous_date." 17:00:00";               //TIME 8AM TO 8AM
+$enddate = $current_date." 06:00:00"; 
 /////////////////////////////////////////
 
 $date1 = $startdate;
@@ -271,16 +271,16 @@ echo "\nSize_Customer=".sizeof($customer_input);
 
 for($k=0;$k<sizeof($customer_input);$k++)
 {
-	if($k==0)
-	{
-		$customer_input_string = $customer_input_string."".$customer_input[$k];
-		$customer_input_string2 = $customer_input_string2." customer_no like '".$customer_input[$k]."@%'";
-	}
-	else
-	{
-		$customer_input_string = $customer_input_string.",".$customer_input[$k];
-		$customer_input_string2 = $customer_input_string2." OR customer_no like '".$customer_input[$k]."@%'";
-	}
+    if($k==0)
+    {
+        $customer_input_string = $customer_input_string."".$customer_input[$k];
+        $customer_input_string2 = $customer_input_string2." customer_no like '".$customer_input[$k]."@%'";
+    }
+    else
+    {
+        $customer_input_string = $customer_input_string.",".$customer_input[$k];
+        $customer_input_string2 = $customer_input_string2." OR customer_no like '".$customer_input[$k]."@%'";
+    }
 }
 
 $station_id = array();
@@ -415,7 +415,7 @@ function write_report($vserial, $vid, $vname, $user_interval)
 		$point = array();
 		$timing = array();*/
 		
-		$report_shift = "ZPMM";    
+		$report_shift = "ZPME";    
 	 
 		get_halt_xml_data($vserial[$i], $vid[$i], $vname[$i], $startdate, $enddate, $user_interval, $report_shift);
 			
@@ -473,7 +473,7 @@ function binary_plant_search($elem, $array, $array1, $array2, $array3, $array4) 
 {
 	//$inc_serial=$i+1;
 	$inc_serial = rand();
-	$filename_title = 'BETA_VTS_HALT_REPORT_(MOTHER_MUMBAI)_'.$previous_date."_".$inc_serial;
+	$filename_title = 'BETA_VTS_HALT_REPORT_EVENING_(MOTHER_FNV)_'.$previous_date."_".$inc_serial;
 	$fullPath = "/var/www/html/vts/beta/src/php/download/".$filename_title;
 	$fname = tempnam_sfx($fullPath, ".xls");
 	$workbook =& new writeexcel_workbook($fname);
@@ -543,15 +543,15 @@ function binary_plant_search($elem, $array, $array1, $array2, $array3, $array4) 
 	$worksheet2->write($r, 15, "Plant Delay Out (Mins)", $text_format);					//15
 	//######################################################
 	$worksheet2->write($r, 16, "Halt Duration (Hr:min:sec)", $text_format);		//16
-	$worksheet2->write($r, 17, "ReportDate1", $text_format);					//17
-	$worksheet2->write($r, 18, "ReportTime1", $text_format);					//18
-	$worksheet2->write($r, 19, "ReportDate2", $text_format);					//19
-	$worksheet2->write($r, 20, "ReportTime2", $text_format);					//20
-	$worksheet2->write($r, 21, "Transporter(M)", $text_format);					//21
-	$worksheet2->write($r, 22, "Transporter(I)", $text_format);					//22
-	$worksheet2->write($r, 23, "Plant", $text_format);							//23
-	$worksheet2->write($r, 24, "Km", $text_format);								//24
-	$worksheet2->write($r, 25, "CustomerName", $text_format);					//25
+	//$worksheet2->write($r, 17, "ReportDate1", $text_format);					//17
+	//$worksheet2->write($r, 18, "ReportTime1", $text_format);					//18
+	//$worksheet2->write($r, 19, "ReportDate2", $text_format);					//19
+	//$worksheet2->write($r, 20, "ReportTime2", $text_format);					//20
+	$worksheet2->write($r, 17, "Transporter(M)", $text_format);					//21
+	$worksheet2->write($r, 18, "Transporter(I)", $text_format);					//22
+	$worksheet2->write($r, 19, "Plant", $text_format);							//23
+	$worksheet2->write($r, 20, "Km", $text_format);								//24
+	$worksheet2->write($r, 21, "CustomerName", $text_format);					//25
 
 	$r++;
 
@@ -600,10 +600,10 @@ function binary_plant_search($elem, $array, $array1, $array2, $array3, $array4) 
 				//###############################################
 				
 				$hrs_min_temp[] = $sheet2_data_tmp[14];
-				$report_date1_temp[] = $sheet2_data_tmp[15];
-				$report_time1_temp[] = $sheet2_data_tmp[16];
-				$report_date2_temp[] = $sheet2_data_tmp[17];
-				$report_time2_temp[] = $sheet2_data_tmp[18];
+				//$report_date1_temp[] = $sheet2_data_tmp[15];
+				//$report_time1_temp[] = $sheet2_data_tmp[16];
+				//$report_date2_temp[] = $sheet2_data_tmp[17];
+				//$report_time2_temp[] = $sheet2_data_tmp[18];
 				$transporter_name_master_temp[] = $sheet2_data_tmp[19];
 				$transporter_name_input_temp[] = $sheet2_data_tmp[20];
 				$relative_plant_temp[] = $sheet2_data_tmp[21];
@@ -653,10 +653,10 @@ function binary_plant_search($elem, $array, $array1, $array2, $array3, $array4) 
 		//###############################################
 		
 		$hrs_min[$n] = $hrs_min_temp[$i];
-		$report_date1[$n] = $report_date1_temp[$i];
-		$report_time1[$n] = $report_time1_temp[$i];
-		$report_date2[$n] = $report_date2_temp[$i];
-		$report_time2[$n] = $report_time2_temp[$i];
+		//$report_date1[$n] = $report_date1_temp[$i];
+		//$report_time1[$n] = $report_time1_temp[$i];
+		//$report_date2[$n] = $report_date2_temp[$i];
+		//$report_time2[$n] = $report_time2_temp[$i];
 		$transporter_name_master[$n] = $transporter_name_master_temp[$i];
 		$transporter_name_input[$n] = $transporter_name_input_temp[$i];
 		$relative_plant[$n] = $relative_plant_temp[$i];
@@ -756,10 +756,10 @@ function binary_plant_search($elem, $array, $array1, $array2, $array3, $array4) 
 			if($ptime_delay2[$i] == "") $ptime_delay2[$i]="-";
 			
 			if($hrs_min[$i]=="")	$hrs_min[$i]="-";
-			if($report_date1[$i]=="")	$report_date1[$i]="-";
-			if($report_time1[$i]=="")	$report_time1[$i]="-";
-			if($report_date2[$i]=="")	$report_date2[$i]="-";
-			if($report_time2[$i]=="")	$report_time2[$i]="-";
+			//if($report_date1[$i]=="")	$report_date1[$i]="-";
+			//if($report_time1[$i]=="")	$report_time1[$i]="-";
+			//if($report_date2[$i]=="")	$report_date2[$i]="-";
+			//if($report_time2[$i]=="")	$report_time2[$i]="-";
 			if($transporter_name_master[$i]=="")	$transporter_name_master[$i]="-";
 			if($transporter_name_input[$i]=="")	$transporter_name_input[$i]="-";
 			if($relative_plant[$i]=="")	$relative_plant[$i]="-";			
@@ -824,12 +824,14 @@ function binary_plant_search($elem, $array, $array1, $array2, $array3, $array4) 
 			//echo "\nrelative_plants2=".$relative_plants." ,relative_transporters=".$relative_transporters." ,relative_routes=".$relative_routes." ,relative_customer_name=".$relative_customer_name;			
 			if($substr_count == 0)
 			{											
-				$csv_string_halt_final = $csv_string_halt_final.$vname[$i].','.$sno[$i].','.$station_no[$i].','.$type_str[$i].','.$relative_routes.','.$report_shift[$i].','.$arrivale_time[$i].','.$depature_time[$i].','.$schedule_in_time[$i].','.$time_delay[$i].','.$pschedule_in[$i].','.$pschedule_out[$i].','.$ptime_delay1[$i].','.$ptime_delay2[$i].','.$hrs_min[$i].','.$report_date1[$i].','.$report_time1[$i].','.$report_date2[$i].','.$report_time2[$i].','.$transporter_name_master[$i].','.$relative_transporters.','.$relative_plants.','.$km[$i].",".$relative_customer_name;
+				//$csv_string_halt_final = $csv_string_halt_final.$vname[$i].','.$sno[$i].','.$station_no[$i].','.$type_str[$i].','.$relative_routes.','.$report_shift[$i].','.$arrivale_time[$i].','.$depature_time[$i].','.$schedule_in_time[$i].','.$time_delay[$i].','.$pschedule_in[$i].','.$pschedule_out[$i].','.$ptime_delay1[$i].','.$ptime_delay2[$i].','.$hrs_min[$i].','.$report_date1[$i].','.$report_time1[$i].','.$report_date2[$i].','.$report_time2[$i].','.$transporter_name_master[$i].','.$relative_transporters.','.$relative_plants.','.$km[$i].",".$relative_customer_name;
+                                $csv_string_halt_final = $csv_string_halt_final.$vname[$i].','.$sno[$i].','.$station_no[$i].','.$type_str[$i].','.$relative_routes.','.$report_shift[$i].','.$arrivale_time[$i].','.$depature_time[$i].','.$schedule_in_time[$i].','.$time_delay[$i].','.$pschedule_in[$i].','.$pschedule_out[$i].','.$ptime_delay1[$i].','.$ptime_delay2[$i].','.$hrs_min[$i].','.$transporter_name_master[$i].','.$relative_transporters.','.$relative_plants.','.$km[$i].",".$relative_customer_name;
 				$substr_count =1;  
 			}
 			else
 			{
-				$csv_string_halt_final = $csv_string_halt_final."#".$vname[$i].','.$sno[$i].','.$station_no[$i].','.$type_str[$i].','.$relative_routes.','.$report_shift[$i].','.$arrivale_time[$i].','.$depature_time[$i].','.$schedule_in_time[$i].','.$time_delay[$i].','.$pschedule_in[$i].','.$pschedule_out[$i].','.$ptime_delay1[$i].','.$ptime_delay2[$i].','.$hrs_min[$i].','.$report_date1[$i].','.$report_time1[$i].','.$report_date2[$i].','.$report_time2[$i].','.$transporter_name_master[$i].','.$relative_transporters.','.$relative_plants.','.$km[$i].",".$relative_customer_name; 
+				//$csv_string_halt_final = $csv_string_halt_final."#".$vname[$i].','.$sno[$i].','.$station_no[$i].','.$type_str[$i].','.$relative_routes.','.$report_shift[$i].','.$arrivale_time[$i].','.$depature_time[$i].','.$schedule_in_time[$i].','.$time_delay[$i].','.$pschedule_in[$i].','.$pschedule_out[$i].','.$ptime_delay1[$i].','.$ptime_delay2[$i].','.$hrs_min[$i].','.$report_date1[$i].','.$report_time1[$i].','.$report_date2[$i].','.$report_time2[$i].','.$transporter_name_master[$i].','.$relative_transporters.','.$relative_plants.','.$km[$i].",".$relative_customer_name; 
+                                $csv_string_halt_final = $csv_string_halt_final."#".$vname[$i].','.$sno[$i].','.$station_no[$i].','.$type_str[$i].','.$relative_routes.','.$report_shift[$i].','.$arrivale_time[$i].','.$depature_time[$i].','.$schedule_in_time[$i].','.$time_delay[$i].','.$pschedule_in[$i].','.$pschedule_out[$i].','.$ptime_delay1[$i].','.$ptime_delay2[$i].','.$hrs_min[$i].','.$transporter_name_master[$i].','.$relative_transporters.','.$relative_plants.','.$km[$i].",".$relative_customer_name; 
 			}			
 			
 			//echo "\nCSV_STRING=".$csv_string_halt_final;
@@ -1161,7 +1163,7 @@ function binary_plant_search($elem, $array, $array1, $array2, $array3, $array4) 
 					$worksheet2->write($r,$c, $excel_time4, $excel_time_format);										
 					$c++;										
 				}
-				else if($m==16 || $m==18)	//REPORT TIME
+				/*else if($m==16 || $m==18)	//REPORT TIME
 				{																			
 					$tmp_date = "1970-01-01";
 					$tmp_date = $tmp_date." ".$sheet2_data[$m];
@@ -1180,7 +1182,7 @@ function binary_plant_search($elem, $array, $array1, $array2, $array3, $array4) 
 					$excel_date2 = intval( ($date_obj2+86400) / 86400 + 25569);
 					$worksheet2->write($r,$c, $excel_date2, $excel_date_format);					
 					$c++;					
-				}
+				}*/
 				/*else if($m==7 || $m==9 || $m ==10 || $m ==11 || $m==12 || $m ==14 $m ==16)
 				{
 					$time_obj = strtotime($sheet2_data[$m]);
@@ -1274,12 +1276,9 @@ function binary_plant_search($elem, $array, $array1, $array2, $array3, $array4) 
     $worksheet2->write($r, 15, "", $text_format);
     $worksheet2->write($r, 16, "", $text_format);
 	$worksheet2->write($r, 17, "", $text_format);
-	$worksheet2->write($r, 18, "", $text_format);
-	$worksheet2->write($r, 19, "", $text_format);
-	$worksheet2->write($r, 20, "", $text_format);
-	$worksheet2->write($r, 21, "Transporter(I)", $text_red_format);
-	$worksheet2->write($r, 22, "Plant", $text_red_format);
-	$worksheet2->write($r, 23, "", $text_format);	
+	$worksheet2->write($r, 18, "Transporter(I)", $text_red_format);
+	$worksheet2->write($r, 19, "Plant", $text_red_format);
+	$worksheet2->write($r, 20, "", $text_format);	
     $r++;         
             
     //####### IN DATABASE(PLOTTED) MAY OR MAY NOT IN MASTER : NOT VISITED
@@ -1368,12 +1367,9 @@ function binary_plant_search($elem, $array, $array1, $array2, $array3, $array4) 
 			$worksheet2->write($r, 15, "", $text_format);
 			$worksheet2->write($r, 16, "", $text_format);
 			$worksheet2->write($r, 17, "", $text_format);
-			$worksheet2->write($r, 18, "", $text_format);
-			$worksheet2->write($r, 19, "", $text_format);
+			$worksheet2->write($r, 18, $transporter_i, $text_red_format);
+			$worksheet2->write($r, 19, $plant_i, $text_red_format);
 			$worksheet2->write($r, 20, "", $text_format);
-			$worksheet2->write($r, 21, $transporter_i, $text_red_format);
-			$worksheet2->write($r, 22, $plant_i, $text_red_format);
-			$worksheet2->write($r, 23, "", $text_format);
 			$r++;         
 		}
     }
@@ -1444,15 +1440,17 @@ function binary_plant_search($elem, $array, $array1, $array2, $array3, $array4) 
 	//echo "\nWORKBOOK CLOSED"; 
  
 	########### SEND MAIL ##############//
-	$to = 'rizwan@iembsys.com';
+	$to = 'jyoti.jaiswal@iembsys.com';
+        //$to = 'rizwan@iembsys.co.in';
 	//$to = 'Logistics.Vashi@motherdairy.com, dattatray.jankar@motherdairy.com, Anand.Arondekar@motherdairy.com, Vijay.Singh@motherdairy.com, ashish@iembsys.co.in';
 
-	$subject = 'BETA::VTS_HALT_REPORT_(MOTHER_FNV)_'.$previous_date;
-	$message = 'BETA::VTS_HALT_REPORT_(MOTHER_FNV)_'.$previous_date."<br><br><font color=red size=1>*** This is an automatically generated email by the system on specified time, please do not reply to this email***</font>"; 
+	$subject = 'BETA::VTS_HALT_REPORT_EVENING_(MOTHER_FNV)_'.$previous_date;
+	$message = 'BETA::VTS_HALT_REPORT_EVENING_(MOTHER_FNV)_'.$previous_date."<br><br><font color=red size=1>*** This is an automatically generated email by the system on specified time, please do not reply to this email***</font>"; 
 	$random_hash = md5(date('r', time()));  
 	$headers = "From: support@iembsys.co.in\r\n";
 	//$headers .= "Cc: rizwan@iembsys.com";  
 	$headers .= "Cc: rizwan@iembsys.com,jyoti.jaiswal@iembsys.com,support1@iembsys.com,support2@iembsys.com";
+       // $headers .= "Cc: rizwan@iembsys.com,jyoti.jaiswal@iembsys.com";
 	$headers .= "\r\nContent-Type: multipart/mixed; boundary=\"PHP-mixed-".$random_hash."\""; 
 	$filename_title = $filename_title.".xls";
 	$file_path = $fullPath.".xls";
@@ -1460,7 +1458,7 @@ function binary_plant_search($elem, $array, $array1, $array2, $array3, $array4) 
         $result = $mgClient->sendMessage($domain, array(
             'from' => 'Itrack <support@iembsys.co.in>',
             'to' => $to,
-            'cc'      => 'jyoti.jaiswal@iembsys.com',
+            'cc'      => 'rizwan@iembsys.com',
             //'cc' => 'rizwan@iembsys.com,jyoti.jaiswal@iembsys.com,support1@iembsys.com,support2@iembsys.com',
             //'cc'      => 'hourlyreport4@gmail.com',
             // 'bcc'     => 'astaseen83@gmail.com',

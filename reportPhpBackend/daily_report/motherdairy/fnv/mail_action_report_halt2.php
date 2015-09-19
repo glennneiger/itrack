@@ -55,9 +55,9 @@ function get_halt_xml_data($vehicle_serial, $vid, $vname, $startdate, $enddate, 
     //echo "\nReportDate1=".$date_tmp1;
 
     //$abspath = "/var/www/html/vts/beta/src/php";
-//echo "\nBeforeLPTrack";
+    //echo "\nBeforeLPTrack";
     include_once($abspath."/get_location_lp_track_report.php");
-//echo "\nAfterLPTrack";
+    //echo "\nAfterLPTrack";
 
     global $DbConnection;
     global $account_id;
@@ -167,7 +167,7 @@ function get_halt_xml_data($vehicle_serial, $vid, $vname, $startdate, $enddate, 
 
     //echo "\nCount=".count($SortedDataObject->deviceDatetime);
    
-	//exit(0);
+    //exit(0);
      if (count($SortedDataObject->deviceDatetime) > 0) {
             //$sortObjTmp = sortData($UnSortedDataObject, $sortBy, $parameterizeData);
             //echo "::Data Read";
@@ -559,7 +559,7 @@ function get_halt_xml_data($vehicle_serial, $vid, $vname, $startdate, $enddate, 
                                     //####### PLANT SCHEDULE
                                     else if($type_str=="Plant")
                                     {
-					//echo "\nIn Plant";
+					echo "\nIn Plant";
                                         for($m=0;$m<sizeof($ScheduleInTime2);$m++)
                                         {																			
                                             $schedule_point_tmp2 = $Plant2[$m];
@@ -573,11 +573,12 @@ function get_halt_xml_data($vehicle_serial, $vid, $vname, $startdate, $enddate, 
                                             $tmp_route = explode('(',$vname);
                                             $route_from_vehicle = trim($tmp_route[0]);
                                             $route_master = trim($RouteNo2[$m]);
-                                            //echo "\nvname=".$vname.",route_from_vehicle[0]=".$route_from_vehicle." ,route_master=".$route_master;
+                                            echo "\nvname=".$vname.",route_from_vehicle[0]=".$route_from_vehicle." ,route_master=".$route_master." ,SchedulePointTmp=".$schedule_point_tmp2." ,StationNo=".$station_no;
 
-                                            if( ($schedule_point_tmp2 == $station_no) && ($route_from_vehicle == $route_master) )
+                                           // if( ($schedule_point_tmp2 == $station_no) && ($route_from_vehicle == $route_master) )
+					  if( ($schedule_point_tmp2 == $station_no) && ($route_from_vehicle == $vname) )
                                             {                              
-                                                //echo "\nPSchedule Matched";												  
+                                                echo "\nPSchedule Matched";												  
                                                 $start_date_tmp = explode(" ",$startdate);
                                                 $end_date_tmp = explode(" ",$enddate);
 
@@ -722,6 +723,16 @@ function get_halt_xml_data($vehicle_serial, $vid, $vname, $startdate, $enddate, 
                                         $cum_dist = 0;
                                     }
 
+				$master_flag = false;
+				for($v=0;$v<sizeof($vehicle_input);$v++) {
+					if(trim($vehicle_input[$v])==trim($vname))
+					{
+						$master_flag = true;
+					}
+				}
+
+				if($master_flag) {
+
                                     if($substr_count == 0)
                                     {											
                                         $csv_string_halt = $csv_string_halt.$vname.','.$sno.','.$station_no.','.$type_str.','.$route_no.','.$report_shift.','.$arrivale_time.','.$depature_time.','.$schedule_in_time_tmp1.','.$time_delay.','.$schedule_in_time_tmp2.','.$schedule_out_time_tmp2.','.$time_delay_p1.','.$time_delay_p2.','.$hrs_min.','.$report_date1.','.$report_time1.','.$report_date2.','.$report_time2.','.$transporter_name_master.','.$transporter_name_input.',-,'.$cum_dist.",-";
@@ -731,6 +742,7 @@ function get_halt_xml_data($vehicle_serial, $vid, $vname, $startdate, $enddate, 
                                     {
                                         $csv_string_halt = $csv_string_halt."#".$vname.','.$sno.','.$station_no.','.$type_str.','.$route_no.','.$report_shift.','.$arrivale_time.','.$depature_time.','.$schedule_in_time_tmp1.','.$time_delay.','.$schedule_in_time_tmp2.','.$schedule_out_time_tmp2.','.$time_delay_p1.','.$time_delay_p2.','.$hrs_min.','.$report_date1.','.$report_time1.','.$report_date2.','.$report_time2.','.$transporter_name_master.','.$transporter_name_input.',-,'.$cum_dist.",-";
                                     }
+				}
 
                                     $prev_vehicle = $vname;
                                     //echo "\nSerial=".$sno;
